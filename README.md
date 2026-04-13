@@ -16,12 +16,3 @@ Data Persistence: Using localStorage, the state is stringified and saved to the 
 Dynamic Rendering: Questions are pulled from a combined array and injected into the DOM. To prevent boredom, the logic tracks seenQuestionIds to ensure users don't see the same question twice in a short period.
 
 Event-Driven UI: Buttons for choosing, skipping, and resetting are wired up with addEventListener, triggering functions that update the state and the UI simultaneously.
-
-
-File Structure
-
-├── app.js                    # Core logic & state
-├── index.html                # Main views
-├── reset.css / style.css     # UI styling
-├── Would_you_rather_lofi.pdf # Wireframes
-└── would u rather hiff.pdf   # Final design
