@@ -1,45 +1,27 @@
-# Would You Rather
+The Game 
 
-A small browser game: pick between two options, track simple stats, and browse recent answers. The UI uses **Bootstrap 5**, **vanilla JavaScript** (no build step), and a minimal **reset** plus **custom CSS**.
+"Would You Rather" is a decision-making game that presents two hypothetical scenarios. Users choose their preference (Option A or B), and the app tracks these decisions to build a personal "Stats" profile. It features category filtering, a skip option for tough choices, and a history log of recent answers.
 
-## Project files
 
-| File        | Role |
-|------------|------|
-| `index.html` | Page structure, Bootstrap layout, links to CSS/JS |
-| `reset.css`  | Light CSS reset |
-| `style.css`  | App-specific styling (cards, OR badge, toast, nav) |
-| `app.js`     | Game logic, routing, and `localStorage` persistence |
+How the Code Works
 
-## How to run
+This application is a Single Page Application (SPA) built with Vanilla JavaScript. Here’s the technical breakdown:
 
-**Option A — open the file**
+Hash-Based Routing: The app uses window.addEventListener('hashchange') to detect URL changes (like #/play or #/stats). It toggles the hidden attribute on sections to swap views instantly without a page reload.
 
-Double-click `index.html` or open it from your editor’s “Open in browser” action.
+State Management: A centralized state object acts as the "brain," keeping track of the current question, total votes, and answer history.
 
-**Option B — local server (recommended)**
+Data Persistence: Using localStorage, the state is stringified and saved to the browser. This ensures that when a user returns, their "Picked A/B" counts and history are still there.
 
-Some browsers behave more predictably with hash routing and `localStorage` when the page is served over HTTP:
+Dynamic Rendering: Questions are pulled from a combined array and injected into the DOM. To prevent boredom, the logic tracks seenQuestionIds to ensure users don't see the same question twice in a short period.
 
-```bash
-cd path/to/Would-you-rather-app
-python3 -m http.server 8080
-```
+Event-Driven UI: Buttons for choosing, skipping, and resetting are wired up with addEventListener, triggering functions that update the state and the UI simultaneously.
 
-Then visit `http://localhost:8080` in your browser.
 
-## Using the app
+File Structure
 
-- **Play** (`#/play`): Choose **A** or **B**, or use **Skip** / **Random** for another prompt.
-- **My Stats** (`#/stats`): See totals, **Recent answers**, and **Reset stats** (clears saved data for this site origin).
-
-Stats are stored in **`localStorage`** under the key `wyr:bootstrap:v1` (per browser, per origin).
-
-## Questions
-
-Prompts live in `app.js` as `BASE_QUESTIONS` and `EXTENDED_QUESTIONS`, merged into one `QUESTIONS` array.
-
-## Requirements
-
-- A modern browser with JavaScript enabled.
-- Internet access only for the Bootstrap **CDN** (CSS and JS bundles linked in `index.html`).
+├── app.js                    # Core logic & state
+├── index.html                # Main views
+├── reset.css / style.css     # UI styling
+├── Would_you_rather_lofi.pdf # Wireframes
+└── would u rather hiff.pdf   # Final design

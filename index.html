@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Would You Rather</title>
+    <meta
+      name="description"
+      content="Would You Rather — play and track your choices."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="py-4">
+    <div class="container app-wrap">
+      <header class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        <h1 class="h2 mb-0 fw-bold">Would You Rather</h1>
+        <nav class="nav" aria-label="Primary">
+          <a
+            class="nav-link text-secondary fw-semibold"
+            href="#/play"
+            data-route="play"
+            >Play</a
+          >
+          <a
+            class="nav-link text-secondary fw-semibold"
+            href="#/stats"
+            data-route="stats"
+            >My Stats</a
+          >
+        </nav>
+      </header>
+
+      <main class="d-grid gap-4">
+        <section
+          id="view-play"
+          class="card border-0 shadow-sm p-3 p-md-4"
+          hidden
+        >
+          <div class="play-area position-relative">
+            <div class="row g-3 align-items-stretch">
+              <div class="col-12 col-md-6">
+                <button
+                  type="button"
+                  id="choice-a"
+                  class="choice-card choice-a w-100"
+                  aria-label="Choose option A"
+                >
+                  <span id="choice-a-text">Loading…</span>
+                </button>
+              </div>
+              <div class="col-12 col-md-6">
+                <button
+                  type="button"
+                  id="choice-b"
+                  class="choice-card choice-b w-100"
+                  aria-label="Choose option B"
+                >
+                  <span id="choice-b-text">Loading…</span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="or-badge badge text-bg-light border shadow-sm px-3 py-2 fs-6 fw-bold"
+              aria-hidden="true"
+            >
+              OR
+            </div>
+          </div>
+          <div
+            class="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3 pt-3 border-top"
+          >
+            <div class="small text-secondary fw-semibold">
+              <span id="question-counter">Question 1</span>
+              <span class="mx-1">·</span>
+              <span id="question-category">Category: —</span>
+            </div>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-skip">
+                Skip
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" id="btn-random">
+                Random
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="view-stats"
+          class="card border-0 shadow-sm p-3 p-md-4"
+          hidden
+        >
+          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+            <div>
+              <h2 class="h5 mb-1 fw-bold">My Stats</h2>
+              <p class="text-secondary mb-0 small">Saved on this device</p>
+            </div>
+            <button type="button" class="btn btn-outline-danger btn-sm" id="btn-reset">
+              Reset stats
+            </button>
+          </div>
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-4">
+              <div class="stats-box bg-light p-3 text-center">
+                <div class="small text-secondary">Total Answers</div>
+                <div class="h3 fw-bold mb-0" id="stat-total">0</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="stats-box bg-light p-3 text-center">
+                <div class="small text-secondary">Picked A</div>
+                <div class="h3 fw-bold mb-0" id="stat-a">0</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="stats-box bg-light p-3 text-center">
+                <div class="small text-secondary">Picked B</div>
+                <div class="h3 fw-bold mb-0" id="stat-b">0</div>
+              </div>
+            </div>
+          </div>
+          <div class="border rounded-3 overflow-hidden">
+            <div
+              class="d-flex justify-content-between align-items-center px-3 py-2 bg-light border-bottom"
+            >
+              <h3 class="h6 mb-0 fw-bold">Recent answers</h3>
+              <span class="small text-secondary" id="history-sub">0 items</span>
+            </div>
+            <ul class="list-group list-group-flush" id="history-list"></ul>
+          </div>
+        </section>
+      </main>
+
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center gap-2 mt-4 text-secondary small"
+      >
+        <div>© <span id="year"></span>. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-secondary text-decoration-none">Privacy</a>
+          <a href="#" class="text-secondary text-decoration-none">Terms</a>
+          <a href="#" class="text-secondary text-decoration-none">Support</a>
+        </div>
+      </footer>
+    </div>
+
+    <div
+      class="toast-msg position-fixed bottom-0 start-50 translate-middle-x mb-3 px-3 py-2 rounded-pill text-white small shadow"
+      id="toast"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>

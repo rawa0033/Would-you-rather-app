@@ -1,0 +1,88 @@
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f7f8fc;
+  color: #1f2937;
+}
+
+.app-wrap {
+  max-width: 980px;
+}
+
+.choice-card {
+  min-height: 280px;
+  border: 0;
+  border-radius: 1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+}
+
+.choice-a {
+  background: #4338ca;
+}
+
+.choice-b {
+  background: #e879f9;
+}
+
+.stats-box {
+  border-radius: 0.75rem;
+}
+
+.play-area {
+  min-height: 280px;
+}
+
+.choice-card {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.choice-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+.choice-card:focus-visible {
+  outline: 3px solid rgba(67, 56, 202, 0.45);
+  outline-offset: 3px;
+}
+
+.or-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (max-width: 767.98px) {
+  .or-badge {
+    position: static;
+    transform: none;
+    width: fit-content;
+    margin: 1rem auto 0;
+  }
+}
+
+.toast-msg {
+  background: rgba(31, 41, 55, 0.95);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.toast-msg.toast-msg--show {
+  opacity: 1;
+}
+
+nav .nav-link.active {
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+}
+
